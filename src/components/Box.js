@@ -1,4 +1,4 @@
-import { Lightning } from '@lightningjs/sdk'
+import { Lightning, Router } from '@lightningjs/sdk'
 
 export default class Box extends Lightning.Component {
   static _template() {
@@ -28,6 +28,7 @@ export default class Box extends Lightning.Component {
 
   _handleEnter() {
     console.log(this.boxName + ' has been selected');
+    Router.navigate('about');
   }
 
   _focus() {
