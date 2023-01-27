@@ -1,5 +1,6 @@
 import { Lightning, Utils, Router } from '@lightningjs/sdk';
 import Box from '../components/Box.js';
+import { getMovies, getMovieConfig } from '../lib/api'
 
 export class Home extends Lightning.Component {
     static _template() {
@@ -26,7 +27,7 @@ export class Home extends Lightning.Component {
             x: 960,
             y: 540,
             mount: 0.5,
-            color: 0xff808080,
+            color: 0x00000000,
             flex: {
               direction: 'row',
               wrap: true,
@@ -101,7 +102,27 @@ export class Home extends Lightning.Component {
         return 'right';
     }
 
-      _init() {
+      async _init() {
         this._setState('Box0');
+        const config = await getMovieConfig();
+        console.log(config)
+        console.log(`${config.base_url}w500//t6HIqrRAclMCA60NsSmeqe9RmNV.jpg`)
+        //src: Utils.asset(`${config.base_url}w500/${data[i].poster_path}`),
+        const data = await getMovies();
+        console.log("app.js: ", data[0].original_title);
+        for (let i = 0; i < data.length; i++) {
+            this.tag(`Box${i}`).patch({
+                Image: {
+                    src: `${config.base_url}w500/${data[i].poster_path}`,
+                  },
+                Label: {
+                    text: {
+                      text: data[i].original_title,
+                    },
+                  },
+            })
+            
+        }
+        console.log(data);
       }
 }
