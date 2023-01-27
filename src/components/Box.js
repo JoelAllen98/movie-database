@@ -39,7 +39,7 @@ export default class Box extends Lightning.Component {
 
   _handleEnter() {
     console.log(this.boxName + ' has been selected');
-    Router.navigate('about');
+    Router.navigate('about', { filmObject: this.filmObject });
   }
 
   _focus() {
@@ -68,7 +68,8 @@ export default class Box extends Lightning.Component {
 
   _init() {
     this.tag('Label').patch({
-      text: this.filmName,
+      text: this.filmObject,
     })
+    console.log(this.filmObject);
   }
 }

@@ -75,8 +75,11 @@ export class About extends Lightning.Component {
     }
 
     set params(data) {
-        if (data.message){
-            this.tag('Info').text.text = data.message;
+        if (data.filmObject){
+            this.tag('MovieTitle').text.text = data.filmObject.original_title;
+            this.tag('ReleaseDate').text.text = data.filmObject.release_date;
+            this.tag('Description').text.text = data.filmObject.overview;
+            this.tag('MovieImage').src = `https://image.tmdb.org/t/p/w500${data.filmObject.poster_path}`;
         }
     }
 }

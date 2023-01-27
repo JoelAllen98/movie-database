@@ -38,22 +38,22 @@ export class Home extends Lightning.Component {
             Box0: {
               type: Box,
               color: 0xff00ff00,
-              filmName: 'Box0',
+              filmObject: 'Box0',
             },
             Box1: {
               type: Box,
               color: 0xffff0000,
-              filmName: 'Box1',
+              filmObject: 'Box1',
             },
             Box2: {
               type: Box,
               color: 0xff0000ff,
-              filmName: 'Box2',
+              filmObject: 'Box2',
             },
             Box3: {
               type: Box,
               color: 0xffff00ff,
-              filmName: 'Box3',
+              filmObject: 'Box3',
             }
           }
         }
@@ -105,11 +105,11 @@ export class Home extends Lightning.Component {
       async _init() {
         this._setState('Box0');
         const config = await getMovieConfig();
-        console.log(config)
-        console.log(`${config.base_url}w500//t6HIqrRAclMCA60NsSmeqe9RmNV.jpg`)
+        //console.log(config)
+        //console.log(`${config.base_url}w500//t6HIqrRAclMCA60NsSmeqe9RmNV.jpg`)
         //src: Utils.asset(`${config.base_url}w500/${data[i].poster_path}`),
         const data = await getMovies();
-        console.log("app.js: ", data[0].original_title);
+        //console.log("app.js: ", data[0].original_title);
         for (let i = 0; i < data.length; i++) {
             this.tag(`Box${i}`).patch({
                 Image: {
@@ -120,6 +120,7 @@ export class Home extends Lightning.Component {
                       text: data[i].original_title,
                     },
                   },
+                filmObject: data[i]
             })
             
         }
