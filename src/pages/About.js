@@ -1,6 +1,6 @@
 import { Lightning, Utils, Router } from '@lightningjs/sdk';
 import Box from '../components/Box.js';
-import { getMovies, getMovieConfig, getSimilarMovies } from '../lib/api'
+import { getMovieConfig, getSimilarMovies } from '../lib/api'
 
 export class About extends Lightning.Component {
   static _template() {
@@ -107,10 +107,6 @@ export class About extends Lightning.Component {
   pageTransition() {
     return 'left';
   }
-
-  /*    _handleLeft() {
-         Router.navigate('home');
-     } */
 
   _handleLeft() {
     let index = parseInt(this._getState().slice(-1));

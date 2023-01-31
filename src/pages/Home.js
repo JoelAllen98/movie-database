@@ -1,4 +1,4 @@
-import { Lightning, Utils, Router } from '@lightningjs/sdk';
+import { Lightning, Utils } from '@lightningjs/sdk';
 import Box from '../components/Box.js';
 import { getMovies, getMovieConfig } from '../lib/api'
 

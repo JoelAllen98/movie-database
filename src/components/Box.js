@@ -51,8 +51,6 @@ export default class Box extends Lightning.Component {
     })
     this.tag('Highlight').patch({
       color: 0xffffffff,
-      //w: 240,
-      //h: 350,
     })
     this.selectedPulse.start();
   }
