@@ -116,6 +116,8 @@ export class About extends Lightning.Component {
         let index = parseInt(this._getState().slice(-1));
         if (index > 0){
           this._setState(`Box${index - 1}`);
+        } else {
+          Router.navigate('home');
         }
       }
     
