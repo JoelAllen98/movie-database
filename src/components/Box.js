@@ -29,6 +29,9 @@ export default class Box extends Lightning.Component {
           mount: 0.5,
           text: {
             text: 'Box',
+            wordWrap: true,
+            wordWrapWidth: 200,
+            maxLines: 2,
             fontSize: 24,
             textColor: 0xff000000,
           },

@@ -23,7 +23,7 @@ export class Home extends Lightning.Component {
           },
           Container: {
             rect: true,
-            w: 1000,
+            w: 1200,
             x: 960,
             y: 540,
             mount: 0.5,
