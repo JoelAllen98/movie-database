@@ -52,9 +52,10 @@ export default class Box extends Lightning.Component {
     })
     this.tag('Highlight').patch({
       color: 0xffffffff,
-      w: 240,
-      h: 350,
+      //w: 240,
+      //h: 350,
     })
+    this.selectedPulse.start();
   }
 
   _unfocus() {
@@ -67,6 +68,7 @@ export default class Box extends Lightning.Component {
       w: 200,
       h: 300,
     })
+    this.selectedPulse.stop();
   }
 
   _init() {
@@ -74,5 +76,14 @@ export default class Box extends Lightning.Component {
       text: this.filmObject,
     })
     console.log(this.filmObject);
+    this.selectedPulse = this.tag('Highlight').animation({
+      duration: 2,
+      repeat: -1,
+      stopMethod: 'immediate',
+      autostop: false,
+      actions:[
+        { p: 'scale', v: { 0: 1.00, 0.25:1.2, 0.5: 1.00, 0.75:1.2, 1:1.00} }
+      ]
+  }); 
   }
 }
